@@ -60,17 +60,17 @@ public class BanquierService {
         return false;
    }
 
-//   public boolean ajouterClient(Client c){
-//        if(!dejaclient(c.getIdClient())){
-//            clients.put(c.getIdClient(),c);
-//            System.out.println("vous ajouter un client bravo");
-//            return true;
-//        }else{
-//            System.out.println("ce client existe deja bien ");
-//            return true;
-//        }
-//   }
-//
+   public boolean ajouterClient(Client c){
+        if(!dejaclient(c.getIdClient())){
+            clients.put(c.getIdClient(),c);
+            System.out.println("vous ajouter un client bravo");
+            return true;
+        }else{
+            System.out.println("ce client existe deja bien ");
+            return true;
+        }
+   }
+
 //    public boolean supprimerClient(Client c) throws ClientnexistantException{
 //        if(dejaclient(c.getIdClient())){
 //            clients.remove(c.getIdClient(),c);
