@@ -1,6 +1,6 @@
-//package Enums;
-//
-//public enum TypeCompte {
-//    COURANT,
-//    EPARGNE
-//}
+package Enums;
+
+public enum TypeCompte {
+   COURANT,
+   EPARGNE
+}
