@@ -51,15 +51,15 @@ public class BanquierService {
        }
    }
 
-//   public boolean dejaclient(int id){
-//        for(Integer key : clients.keySet()){
-//            if(key.equals(id)){
-//                return true;
-//            }
-//       }
-//        return false;
-//   }
-//
+   public boolean dejaclient(int id){
+        for(Integer key : clients.keySet()){
+            if(key.equals(id)){
+                return true;
+            }
+       }
+        return false;
+   }
+
 //   public boolean ajouterClient(Client c){
 //        if(!dejaclient(c.getIdClient())){
 //            clients.put(c.getIdClient(),c);
