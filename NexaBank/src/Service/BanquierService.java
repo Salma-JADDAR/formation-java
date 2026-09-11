@@ -1,12 +1,12 @@
-//package Service;
-//import Enums.TypeCompte;
-//import modules.Client;
-//import modules.Compte;
-//import Execptions.CompteInexistantException;
-//import Execptions.ClientnexistantException;
-//import java.util.Map;
-//import java.util.HashMap;
-//public class BanquierService {
+package Service;
+import Enums.TypeCompte;
+import modules.Client;
+import modules.Compte;
+import Execptions.CompteInexistantException;
+import Execptions.ClientnexistantException;
+import java.util.Map;
+import java.util.HashMap;
+public class BanquierService {
 //
 //    private Map<Integer, Client> clients = new HashMap<>();
 //
@@ -21,14 +21,14 @@
 //        }
 //    }
 //
-//    public boolean deja(Client c, String numcomp) {
-//        for (String key : c.getComptes().keySet()) {
-//            if (key.equals(numcomp)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    public boolean deja(Client c, String numcomp) {
+        for (String key : c.getComptes().keySet()) {
+            if (key.equals(numcomp)) {
+                return true;
+            }
+        }
+        return false;
+    }
 //
 //    public boolean supprimerCompte(Client c,Compte cmp)  throws CompteInexistantException {
 //        if(deja(c, cmp.getNumcomp())){
