@@ -1,8 +1,8 @@
-//package Execptions;
-//
-//public class MontantInvalideException extends Exception {
-//
-//    public MontantInvalideException(String message) {
-//        super(message);
-//    }
-//}
+package Execptions;
+
+public class MontantInvalideException extends Exception {
+
+    public MontantInvalideException(String message) {
+        super(message);
+    }
+}
