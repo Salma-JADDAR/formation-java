@@ -40,25 +40,25 @@ public class ClientService {
 
     }
 
-//    public boolean retraitMontant(Client c,Compte cmp,double montant) throws CompteInexistantException,MontantInvalideException,SoldeInsuffisantException{
-//        if(dejaCompte(c, cmp.getNumcomp())){
-//            if(montant <=0){
-//                throw new MontantInvalideException("le montant doit etre superirue a 0");
-//            }
-//            if (montant > cmp.getSolde()) {
-//                throw new SoldeInsuffisantException("Le montant doit etre inferieure ou egale le solde ");
-//            }
-//            double  solde =cmp.getSolde();
-//            solde=solde-montant;
-//            cmp.setSolde(solde);
-//            System.out.println("vous reterait un montant de :"+montant+"a le compte "+cmp.getNumcomp()+"est maintant votre solde est :"+solde);
-//            return true;
-//        }else{
-//            throw new CompteInexistantException("Le compte " + cmp.getNumcomp() + " n'existe pas.");
-//        }
-//
-//    }
-//
+    public boolean retraitMontant(Client c,Compte cmp,double montant) throws CompteInexistantException,MontantInvalideException,SoldeInsuffisantException{
+        if(dejaCompte(c, cmp.getNumcomp())){
+            if(montant <=0){
+                throw new MontantInvalideException("le montant doit etre superirue a 0");
+            }
+            if (montant > cmp.getSolde()) {
+                throw new SoldeInsuffisantException("Le montant doit etre inferieure ou egale le solde ");
+            }
+            double  solde =cmp.getSolde();
+            solde=solde-montant;
+            cmp.setSolde(solde);
+            System.out.println("vous reterait un montant de :"+montant+"a le compte "+cmp.getNumcomp()+"est maintant votre solde est :"+solde);
+            return true;
+        }else{
+            throw new CompteInexistantException("Le compte " + cmp.getNumcomp() + " n'existe pas.");
+        }
+
+    }
+
 //
 //    public boolean vairementMontant(Client c1,Client c2,Compte cmp1, Compte cmp2,double montant) throws CompteInexistantException,MontantInvalideException,SoldeInsuffisantException {
 //        if(retraitMontant(c1,cmp1,montant)){
