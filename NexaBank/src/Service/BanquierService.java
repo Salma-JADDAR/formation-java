@@ -81,20 +81,20 @@ public class BanquierService {
         }
     }
 
-//   public boolean modifierinfoclient(Client c,String nom,String prenom,String motDepass,String email)throws ClientnexistantException{
-//       if(dejaclient(c.getIdClient())) {
-//           c.setEmail(email);
-//           c.setMotDepass(motDepass);
-//           c.setNom(nom);
-//           c.setPrenom(prenom);
-//           System.out.println("tous les info de client sont bien modifier ");
-//           return true;
-//       }else{
-//           throw new ClientnexistantException("Le client " + c.getIdClient() + " n'existe pas.");
-//       }
-//   }
-//
-//
-//
-//
-//}
+   public boolean modifierinfoclient(Client c,String nom,String prenom,String motDepass,String email)throws ClientnexistantException{
+       if(dejaclient(c.getIdClient())) {
+           c.setEmail(email);
+           c.setMotDepass(motDepass);
+           c.setNom(nom);
+           c.setPrenom(prenom);
+           System.out.println("tous les info de client sont bien modifier ");
+           return true;
+       }else{
+           throw new ClientnexistantException("Le client " + c.getIdClient() + " n'existe pas.");
+       }
+   }
+
+
+
+
+}
