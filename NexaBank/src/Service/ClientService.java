@@ -24,22 +24,22 @@ public class ClientService {
         return false;
     }
 
-//    public boolean depotMontant(Client c, Compte cmp, double montant) throws CompteInexistantException,MontantInvalideException {
-//        if(dejaCompte(c, cmp.getNumcomp())){
-//            if(montant <=0){
-//                throw new MontantInvalideException("le montant qui tu donner est negative");
-//            }
-//            double  solde =cmp.getSolde();
-//            solde=solde+montant;
-//            cmp.setSolde(solde);
-//            System.out.println("vous ajouter un montant de :"+montant+"a le compte "+cmp.getNumcomp()+"est maintant votre solde est :"+solde);
-//            return true;
-//        }else{
-//            throw new CompteInexistantException("Le compte " + cmp.getNumcomp() + " n'existe pas.");
-//        }
-//
-//    }
-//
+    public boolean depotMontant(Client c, Compte cmp, double montant) throws CompteInexistantException,MontantInvalideException {
+        if(dejaCompte(c, cmp.getNumcomp())){
+            if(montant <=0){
+                throw new MontantInvalideException("le montant qui tu donner est negative");
+            }
+            double  solde =cmp.getSolde();
+            solde=solde+montant;
+            cmp.setSolde(solde);
+            System.out.println("vous ajouter un montant de :"+montant+"a le compte "+cmp.getNumcomp()+"est maintant votre solde est :"+solde);
+            return true;
+        }else{
+            throw new CompteInexistantException("Le compte " + cmp.getNumcomp() + " n'existe pas.");
+        }
+
+    }
+
 //    public boolean retraitMontant(Client c,Compte cmp,double montant) throws CompteInexistantException,MontantInvalideException,SoldeInsuffisantException{
 //        if(dejaCompte(c, cmp.getNumcomp())){
 //            if(montant <=0){
