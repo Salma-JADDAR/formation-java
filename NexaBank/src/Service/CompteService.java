@@ -14,17 +14,17 @@ public class CompteService {
         return false;
     }
 
-//    public boolean ajouterTransaction(Transaction t, Compte c){
-//        if (!deja(c,t)){
-//            c.getHistoriqueTransactions().add(t);
-//            System.out.println("tu as un nouvelle transacrtion");
-//            return true;
-//        }else{
-//            System.out.println("tu as deja cette transacrtion");
-//            return false;
-//        }
-//    }
-//
+    public boolean ajouterTransaction(Transaction t, Compte c){
+        if (!deja(c,t)){
+            c.getHistoriqueTransactions().add(t);
+            System.out.println("tu as un nouvelle transacrtion");
+            return true;
+        }else{
+            System.out.println("tu as deja cette transacrtion");
+            return false;
+        }
+    }
+
 //    public boolean supprimerTransaction(Transaction t, Compte c){
 //        if (deja(c,t)){
 //            c.getHistoriqueTransactions().remove(t);
