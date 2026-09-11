@@ -1,18 +1,18 @@
-//package Service;
+package Service;
 //
 //import Execptions.CompteInexistantException;
 //import Execptions.MontantInvalideException;
 //import Execptions.SoldeInsuffisantException;
-//import modules.Client;
-//import modules.Compte;
+import modules.Client;
+import modules.Compte;
 //
-//public class ClientService {
-//
-//    public void Consulter_solde_de_chaque_Compte(Client c){
-//        for(Compte cmp : c.getComptes().values()){
-//            System.out.println("numero de compte: " + cmp.getNumcomp() + " solde: " + cmp.getSolde());
-//        }
-//    }
+public class ClientService {
+
+    public void Consulter_solde_de_chaque_Compte(Client c){
+        for(Compte cmp : c.getComptes().values()){
+            System.out.println("numero de compte: " + cmp.getNumcomp() + " solde: " + cmp.getSolde());
+        }
+    }
 //
 //
 //    public boolean dejaCompte(Client c,String numcom){
