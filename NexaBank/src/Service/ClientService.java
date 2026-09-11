@@ -59,14 +59,14 @@ public class ClientService {
 
     }
 
-//
-//    public boolean vairementMontant(Client c1,Client c2,Compte cmp1, Compte cmp2,double montant) throws CompteInexistantException,MontantInvalideException,SoldeInsuffisantException {
-//        if(retraitMontant(c1,cmp1,montant)){
-//            depotMontant(c2,cmp2,montant);
-//            System.out.println("vous vairement a le compte "+cmp2.getNumcomp()+"est effetcuer bien bravo");
-//            return true;
-//        }
-//        return false;
-//
-//    }
-//}
+
+    public boolean vairementMontant(Client c1,Client c2,Compte cmp1, Compte cmp2,double montant) throws CompteInexistantException,MontantInvalideException,SoldeInsuffisantException {
+        if(retraitMontant(c1,cmp1,montant)){
+            depotMontant(c2,cmp2,montant);
+            System.out.println("vous vairement a le compte "+cmp2.getNumcomp()+"est effetcuer bien bravo");
+            return true;
+        }
+        return false;
+
+    }
+}
