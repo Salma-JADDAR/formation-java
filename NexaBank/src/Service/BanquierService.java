@@ -41,16 +41,16 @@ public class BanquierService {
         }
     }
 
-//   public boolean modifierinfoCompte(Client c,Compte cmp,TypeCompte type) throws CompteInexistantException{
-//       if(deja(c, cmp.getNumcomp())){
-//           cmp.setTypeCompte(type);
-//           System.out.println("tu fait la modification avaec succes tres bien")   ;
-//           return true;
-//       }else{
-//           throw new CompteInexistantException("Le compte " + cmp.getNumcomp() + " n'existe pas.");
-//       }
-//   }
-//
+   public boolean modifierinfoCompte(Client c,Compte cmp,TypeCompte type) throws CompteInexistantException{
+       if(deja(c, cmp.getNumcomp())){
+           cmp.setTypeCompte(type);
+           System.out.println("tu fait la modification avaec succes tres bien")   ;
+           return true;
+       }else{
+           throw new CompteInexistantException("Le compte " + cmp.getNumcomp() + " n'existe pas.");
+       }
+   }
+
 //   public boolean dejaclient(int id){
 //        for(Integer key : clients.keySet()){
 //            if(key.equals(id)){
