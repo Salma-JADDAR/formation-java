@@ -13,17 +13,17 @@ public class ClientService {
             System.out.println("numero de compte: " + cmp.getNumcomp() + " solde: " + cmp.getSolde());
         }
     }
-//
-//
-//    public boolean dejaCompte(Client c,String numcom){
-//        for(String key :c.getComptes().keySet()){
-//            if(key.equals(numcom)){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
+
+
+    public boolean dejaCompte(Client c,String numcom){
+        for(String key :c.getComptes().keySet()){
+            if(key.equals(numcom)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 //    public boolean depotMontant(Client c, Compte cmp, double montant) throws CompteInexistantException,MontantInvalideException {
 //        if(dejaCompte(c, cmp.getNumcomp())){
 //            if(montant <=0){
