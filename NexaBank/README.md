@@ -35,7 +35,7 @@ Les principaux diagrammes réalisés sont :
 
 * Diagramme de cas d'utilisation
 * Diagramme de classes
-* Diagrammes de séquence
+
 
 ## Technologies et outils
 
