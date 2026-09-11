@@ -7,20 +7,20 @@ import Execptions.ClientnexistantException;
 import java.util.Map;
 import java.util.HashMap;
 public class BanquierService {
-//
-//    private Map<Integer, Client> clients = new HashMap<>();
-//
-//    public boolean creerCompte(Client c,Compte cmp){
-//        if(!deja(c, cmp.getNumcomp())){
-//             c.getComptes().put(cmp.getNumcomp(),cmp);
-//             System.out.println("vous ajouter avec bon le compte");
-//             return true;
-//        }else{
-//            System.out.println("deja ce compte est la ");
-//            return false;
-//        }
-//    }
-//
+
+    private Map<Integer, Client> clients = new HashMap<>();
+
+    public boolean creerCompte(Client c,Compte cmp){
+        if(!deja(c, cmp.getNumcomp())){
+             c.getComptes().put(cmp.getNumcomp(),cmp);
+             System.out.println("vous ajouter avec bon le compte");
+             return true;
+        }else{
+            System.out.println("deja ce compte est la ");
+            return false;
+        }
+    }
+
     public boolean deja(Client c, String numcomp) {
         for (String key : c.getComptes().keySet()) {
             if (key.equals(numcomp)) {
