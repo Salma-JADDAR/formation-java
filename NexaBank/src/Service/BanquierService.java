@@ -29,18 +29,18 @@ public class BanquierService {
         }
         return false;
     }
-//
-//    public boolean supprimerCompte(Client c,Compte cmp)  throws CompteInexistantException {
-//        if(deja(c, cmp.getNumcomp())){
-//            c.getComptes().remove(cmp.getNumcomp(),cmp);
-//            System.out.println("vous supprimer avec bon le compte");
-//            return true;
-//        }else{
-//            throw new CompteInexistantException("Le compte " + cmp.getNumcomp() + " n'existe pas.");
-//
-//        }
-//    }
-//
+
+    public boolean supprimerCompte(Client c,Compte cmp)  throws CompteInexistantException {
+        if(deja(c, cmp.getNumcomp())){
+            c.getComptes().remove(cmp.getNumcomp(),cmp);
+            System.out.println("vous supprimer avec bon le compte");
+            return true;
+        }else{
+            throw new CompteInexistantException("Le compte " + cmp.getNumcomp() + " n'existe pas.");
+
+        }
+    }
+
 //   public boolean modifierinfoCompte(Client c,Compte cmp,TypeCompte type) throws CompteInexistantException{
 //       if(deja(c, cmp.getNumcomp())){
 //           cmp.setTypeCompte(type);
