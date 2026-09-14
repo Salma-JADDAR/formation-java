@@ -4,6 +4,8 @@ import modules.Compte;
 import modules.Transaction;
 import modules.Client;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -55,11 +57,26 @@ public class CompteService {
 
             }
             f.write("///////////////////////////////////////////");
-            f.close();
+
         } catch (IOException e) {
             throw new FichierException("Erreur lors de l'enregistrement du relevé du compte " + cmp.getNumcomp());
         }
 
+    }
+
+    public void consulterReleveDepuisFichier(Compte cmp) throws FichierException {
+        String nomFichier = "compte" + cmp.getNumcomp() + ".txt";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(nomFichier))) {
+            String ligne;
+
+            while ((ligne = reader.readLine()) != null) {
+                System.out.println(ligne);
+            }
+
+        } catch (IOException e) {
+            throw new FichierException("Impossible de consulter le relevé du compte " + cmp.getNumcomp());
+        }
     }
 
 
