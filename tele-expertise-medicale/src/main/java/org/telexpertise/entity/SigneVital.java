@@ -25,13 +25,9 @@ public class SigneVital {
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
-    public SigneVital() {
-    }
 
-    public SigneVital(Patient patient,
-                      Double temperature,
-                      Integer frequenceCardiaque,
-                      Integer tensionSystolique,
+
+    public SigneVital(Patient patient, Double temperature, Integer frequenceCardiaque, Integer tensionSystolique,
                       Integer tensionDiastolique,
                       Double poids,
                       Double taille) {
