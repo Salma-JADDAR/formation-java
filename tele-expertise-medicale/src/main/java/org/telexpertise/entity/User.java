@@ -1,37 +1,46 @@
+
 package org.telexpertise.entity;
 
-import jakarta.persistence.*;
-import org.telexpertise.enums.Role;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class User {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "nom", nullable = false, length = 100)
     private String nom;
 
-    @Column(nullable = false)
+    @Column(name = "prenom", nullable = false, length = 100)
     private String prenom;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true, length = 150)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "mot_de_passe", nullable = false, length = 255)
     private String motDePasse;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "role", nullable = false, length = 30)
     private Role role;
 
-    public User() {
+    protected User() {
     }
 
-    public User(String nom, String prenom, String email,
-                String motDePasse, Role role) {
+    protected User(String nom, String prenom, String email, String motDePasse, Role role) {
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
@@ -47,36 +56,36 @@ public class User {
         return nom;
     }
 
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getMotDePasse() {
-        return motDePasse;
-    }
-
-    public Role getRole() {
-        return role;
-    }
-
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
     }
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
+    }
+
+    public Role getRole() {
+        return role;
     }
 
     public void setRole(Role role) {
