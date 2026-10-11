@@ -1,9 +1,20 @@
+
 package org.telexpertise.entity;
 
-import jakarta.persistence.*;
-import org.telexpertise.enums.StatutConsultation;
-
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import org.telexpertise.enums.StatutConsultation;
 
 @Entity
 @Table(name = "consultations")
@@ -13,44 +24,42 @@ public class Consultation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "date_consultation", nullable = false)
     private LocalDateTime dateConsultation;
 
-    @Column(nullable = false)
+    @Column(name = "motif", nullable = false, length = 500)
     private String motif;
 
-    @Column(length = 2000)
+    @Column(name = "observations", columnDefinition = "TEXT")
     private String observations;
 
-    @Column(nullable = false)
-    private Double cout;
+    @Column(name = "diagnostic", columnDefinition = "TEXT")
+    private String diagnostic;
+
+    @Column(name = "cout", nullable = false, precision = 8, scale = 2)
+    private BigDecimal cout;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "statut", nullable = false, length = 40)
     private StatutConsultation statut;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "generaliste_id", nullable = false)
-    private User generaliste;
+    private Generaliste generaliste;
 
-    public Consultation() {
+    protected Consultation() {
     }
 
-    public Consultation(Patient patient,
-                        User generaliste,
-                        String motif,
-                        String observations) {
-
+    public Consultation(LocalDateTime dateConsultation, String motif, BigDecimal cout, Patient patient, Generaliste generaliste) {
+        this.dateConsultation = dateConsultation;
+        this.motif = motif;
+        this.cout = cout;
         this.patient = patient;
         this.generaliste = generaliste;
-        this.motif = motif;
-        this.observations = observations;
-        this.dateConsultation = LocalDateTime.now();
-        this.cout = 150.0;
         this.statut = StatutConsultation.EN_COURS;
     }
 
@@ -62,35 +71,63 @@ public class Consultation {
         return dateConsultation;
     }
 
+    public void setDateConsultation(LocalDateTime dateConsultation) {
+        this.dateConsultation = dateConsultation;
+    }
+
     public String getMotif() {
         return motif;
+    }
+
+    public void setMotif(String motif) {
+        this.motif = motif;
     }
 
     public String getObservations() {
         return observations;
     }
 
-    public Double getCout() {
+    public void setObservations(String observations) {
+        this.observations = observations;
+    }
+
+    public String getDiagnostic() {
+        return diagnostic;
+    }
+
+    public void setDiagnostic(String diagnostic) {
+        this.diagnostic = diagnostic;
+    }
+
+    public BigDecimal getCout() {
         return cout;
+    }
+
+    public void setCout(BigDecimal cout) {
+        this.cout = cout;
     }
 
     public StatutConsultation getStatut() {
         return statut;
     }
 
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public User getGeneraliste() {
-        return generaliste;
-    }
-
     public void setStatut(StatutConsultation statut) {
         this.statut = statut;
     }
 
-    public void setObservations(String observations) {
-        this.observations = observations;
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public Generaliste getGeneraliste() {
+        return generaliste;
+    }
+
+    public void setGeneraliste(Generaliste generaliste) {
+        this.generaliste = generaliste;
     }
 }
