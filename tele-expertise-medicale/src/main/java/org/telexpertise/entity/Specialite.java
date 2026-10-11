@@ -1,6 +1,12 @@
+
 package org.telexpertise.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "specialites")
@@ -10,14 +16,18 @@ public class Specialite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "nom", nullable = false, unique = true, length = 100)
     private String nom;
 
-    public Specialite() {
+    @Column(name = "description", nullable = false, length = 1000)
+    private String description;
+
+    protected Specialite() {
     }
 
-    public Specialite(String nom) {
+    public Specialite(String nom, String description) {
         this.nom = nom;
+        this.description = description;
     }
 
     public Long getId() {
@@ -30,5 +40,13 @@ public class Specialite {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
