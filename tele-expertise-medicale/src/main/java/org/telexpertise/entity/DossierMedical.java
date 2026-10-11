@@ -1,7 +1,15 @@
+
 package org.telexpertise.entity;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "dossiers_medicaux")
@@ -11,31 +19,76 @@ public class DossierMedical {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "antecedents_medicaux", columnDefinition = "TEXT")
+    private String antecedentsMedicaux;
+
+    @Column(name = "allergies", columnDefinition = "TEXT")
+    private String allergies;
+
+    @Column(name = "traitements_en_cours", columnDefinition = "TEXT")
+    private String traitementsEnCours;
+
+    @Column(name = "date_creation", nullable = false)
+    private LocalDate dateCreation;
+
     @OneToOne(optional = false)
     @JoinColumn(name = "patient_id", nullable = false, unique = true)
     private Patient patient;
 
-    @Column(nullable = false)
-    private LocalDateTime dateCreation;
-
-    public DossierMedical() {
+    protected DossierMedical() {
     }
 
-    public DossierMedical(Patient patient) {
+    public DossierMedical(
+            Patient patient,
+            String antecedentsMedicaux,
+            String allergies,
+            String traitementsEnCours,
+            LocalDate dateCreation) {
         this.patient = patient;
-        this.dateCreation = LocalDateTime.now();
+        this.antecedentsMedicaux = antecedentsMedicaux;
+        this.allergies = allergies;
+        this.traitementsEnCours = traitementsEnCours;
+        this.dateCreation = dateCreation;
     }
 
     public Long getId() {
         return id;
     }
 
-    public Patient getPatient() {
-        return patient;
+    public String getAntecedentsMedicaux() {
+        return antecedentsMedicaux;
     }
 
-    public LocalDateTime getDateCreation() {
+    public void setAntecedentsMedicaux(String antecedentsMedicaux) {
+        this.antecedentsMedicaux = antecedentsMedicaux;
+    }
+
+    public String getAllergies() {
+        return allergies;
+    }
+
+    public void setAllergies(String allergies) {
+        this.allergies = allergies;
+    }
+
+    public String getTraitementsEnCours() {
+        return traitementsEnCours;
+    }
+
+    public void setTraitementsEnCours(String traitementsEnCours) {
+        this.traitementsEnCours = traitementsEnCours;
+    }
+
+    public LocalDate getDateCreation() {
         return dateCreation;
+    }
+
+    public void setDateCreation(LocalDate dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
+    public Patient getPatient() {
+        return patient;
     }
 
     public void setPatient(Patient patient) {
