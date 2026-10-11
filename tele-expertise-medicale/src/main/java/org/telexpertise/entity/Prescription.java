@@ -1,6 +1,16 @@
+
 package org.telexpertise.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "prescriptions")
@@ -10,18 +20,22 @@ public class Prescription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 3000)
-    private String contenu;
+    @Column(name = "date_prescription", nullable = false)
+    private LocalDateTime datePrescription;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "consultation_id", nullable = false)
+    @Column(name = "instructions", columnDefinition = "TEXT")
+    private String instructions;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "consultation_id", nullable = false, unique = true)
     private Consultation consultation;
 
-    public Prescription() {
+    protected Prescription() {
     }
 
-    public Prescription(String contenu, Consultation consultation) {
-        this.contenu = contenu;
+    public Prescription(String instructions, Consultation consultation) {
+        this.datePrescription = LocalDateTime.now();
+        this.instructions = instructions;
         this.consultation = consultation;
     }
 
@@ -29,15 +43,23 @@ public class Prescription {
         return id;
     }
 
-    public String getContenu() {
-        return contenu;
+    public LocalDateTime getDatePrescription() {
+        return datePrescription;
+    }
+
+    public String getInstructions() {
+        return instructions;
+    }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
 
     public Consultation getConsultation() {
         return consultation;
     }
 
-    public void setContenu(String contenu) {
-        this.contenu = contenu;
+    public void setConsultation(Consultation consultation) {
+        this.consultation = consultation;
     }
 }
