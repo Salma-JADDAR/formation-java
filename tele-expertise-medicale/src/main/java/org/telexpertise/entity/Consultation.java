@@ -54,7 +54,12 @@ public class Consultation {
     protected Consultation() {
     }
 
-    public Consultation(LocalDateTime dateConsultation, String motif, BigDecimal cout, Patient patient, Generaliste generaliste) {
+    public Consultation(
+            LocalDateTime dateConsultation,
+            String motif,
+            BigDecimal cout,
+            Patient patient,
+            Generaliste generaliste) {
         this.dateConsultation = dateConsultation;
         this.motif = motif;
         this.cout = cout;
