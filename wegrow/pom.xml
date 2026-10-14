@@ -45,6 +45,13 @@
       <version>3.5.13</version>
       <scope>compile</scope>
     </dependency>
+
+    <!-- Source: https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+    <dependency>
+      <groupId>org.hibernate.orm</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>6.6.57.Final</version>
+    </dependency>
   </dependencies>
 
   <build>
