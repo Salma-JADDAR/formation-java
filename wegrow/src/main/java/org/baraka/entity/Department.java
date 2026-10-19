@@ -1,16 +1,32 @@
+
 package org.baraka.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(
+        name = "departments",
+        uniqueConstraints = @UniqueConstraint(
+                name = "uk_department_name",
+                columnNames = "name"
+        )
+)
 public class Department {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, unique = true, length = 100)
     private String name;
+
+    @Column(length = 255)
     private String description;
 
     public Department() {
     }
 
-    public Department(Long id, String name, String description) {
-        this.id = id;
+    public Department(String name, String description) {
         this.name = name;
         this.description = description;
     }
