@@ -65,6 +65,12 @@
         <constructor-arg ref="departmentRepository"/>
     </bean>
 
+    <bean id="employeeService"
+          class="org.baraka.service.EmployeeServiceImpl">
+        <constructor-arg ref="employeeRepository"/>
+        <constructor-arg ref="departmentRepository"/>
+    </bean>
+
 
     <tx:advice id="transactionAdvice"
                transaction-manager="transactionManager">
