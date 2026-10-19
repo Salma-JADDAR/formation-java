@@ -1,0 +1,18 @@
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: wegrow-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: wegrow
+      MYSQL_USER: wegrow_user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3307:3306"
+    volumes:
+      - wegrow_mysql_data:/var/lib/mysql
+
+volumes:
+  wegrow_mysql_data:
